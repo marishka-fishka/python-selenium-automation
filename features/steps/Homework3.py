@@ -11,4 +11,5 @@ def click_cart_icon(context):
 
 @then('Verify that Shopping cart is empty')
 def verify_shopping_cart_empty(context):
-    assert 'empty' in context.driver.find_element(By.XPATH, "//h1[@class='sc-empty-cart-header']").text
+    assert 'Your Shopping Cart is empty.' in context.driver.find_element(By.XPATH,
+                                                                         "//h1[@class='sc-empty-cart-header']").text
