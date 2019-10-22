@@ -2,6 +2,7 @@ from behave import given, when, then
 from selenium.webdriver.common.by import By
 from time import sleep
 
+
 @when('Click on the cart icon')
 def click_cart_icon(context):
     context.driver.find_element(By.CSS_SELECTOR, 'a#nav-cart').click()
