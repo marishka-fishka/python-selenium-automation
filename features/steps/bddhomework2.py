@@ -16,11 +16,12 @@ def open_amazon(context):
 @when('Click on search field')
 def click_field(context):
     context.driver.find_element(*SEARCH_CANCEL_ORDER1).click()
-    context.driver.find_element(*SEARCH_CANCEL_ORDER1).clear()
+
 
 
 @when('Input {text} in search field')
-def input_search(context, text):
+def input_text(context, text):
+    context.driver.find_element(*SEARCH_CANCEL_ORDER1).clear()
     context.driver.find_element(*SEARCH_CANCEL_ORDER1).send_keys(text)
 
 
