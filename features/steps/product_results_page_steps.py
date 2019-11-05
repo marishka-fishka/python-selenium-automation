@@ -7,7 +7,9 @@ from selenium.webdriver.support import expected_conditions as EC
 TOOLBAR_TEXT_BOLD = (By.CSS_SELECTOR, "h1 span.a-text-bold")
 CARD_ITEM_COUNT = (By.ID, 'nav-cart-count')
 EMAIL_FIELD = (By.CSS_SELECTOR, "input[type='email']")
-
+ITEM_NAME = (By.CSS_SELECTOR, "a[id='dealTitle']")
+FIRST_ELEMENT_IN_DEALS = (By.XPATH, "//div[@class='acs-wtfl-title a-spacing-mini']")
+CART_BUTTON = (By.ID, 'add-to-cart-button')
 
 @then('Search results for {product} is shown')
 def verify_result(context, product):
@@ -25,19 +27,12 @@ def verify_number_of_item(context, expected_number):
 
 @when('Put item in the cart')
 def put_item_in_cart(context):
-   context.driver.find_element(By.CSS_SELECTOR, "a[id='dealTitle']").click()
-   item_numbers = context.driver.find_elements(By.CSS_SELECTOR, "span[class='a-size-base a-color-base']")
+   context.driver.find_element(*ITEM_NAME).click()
+   sleep(5)
+   item_numbers = context.driver.find_elements(*FIRST_ELEMENT_IN_DEALS)
    if len(item_numbers) > 1:
        item_numbers[0].click()
-       sleep(4)
-   context.driver.find_element(By.ID, 'add-to-cart-button').click()
-   sleep(4)
-   protection_window = context.driver.find_element(By.CSS_SELECTOR,"div[class='a-column a-span10 a-span-last']")
-   if protection_window == True:
-    context.driver.find_element(By.ID, "attachSiNoCoverage-announce").click()
-   else:
-       pass
-
+   context.driver.find_element(*CART_BUTTON).click()
 
 
 @then('Verify Sign In page is opened')

@@ -6,7 +6,7 @@ Feature: Test Scenarios for Today's deals functionality
       When Store original windows
        And Click to open Deals under 25
        And Switch to the newly opened window
-      Then Today's Deals are shown
+      Then Shop all deals are shown
       When Put item in the cart
       Then User can close new window and switch back to original
       When Refresh the page

@@ -60,7 +60,7 @@ def verify_amount_of_items(context):
         f'Expected 6 items but got {len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))}'
 
 
-
+#=======================$25 DEALS==============================
 
 @when('Store original windows')
 def store_current_windows(context):
@@ -101,6 +101,8 @@ def close_and_switch_window_back(context):
 def refresh_the_page(context):
     context.driver.refresh()
     sleep(4)
+
+
 
 #=======================TOOLTIP==============================
 
