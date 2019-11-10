@@ -8,7 +8,7 @@ TOOLBAR_TEXT_BOLD = (By.CSS_SELECTOR, "h1 span.a-text-bold")
 CARD_ITEM_COUNT = (By.ID, 'nav-cart-count')
 EMAIL_FIELD = (By.CSS_SELECTOR, "input[type='email']")
 ITEM_NAME = (By.CSS_SELECTOR, "a[id='dealTitle']")
-FIRST_ELEMENT_IN_DEALS = (By.XPATH, "//div[@class='acs-wtfl-title a-spacing-mini']")
+FIRST_ELEMENT_IN_DEALS = (By.CSS_SELECTOR, "div[id='octopus-dlp-asin-stream'] [class='a-box a-box-normal a-color-base-background']")
 CART_BUTTON = (By.ID, 'add-to-cart-button')
 
 @then('Search results for {product} is shown')
