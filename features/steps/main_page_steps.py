@@ -26,15 +26,18 @@ def open_wholeffods_page(context):
 
 @when('Click Amazon Orders link')
 def click_orders_link(context):
-    context.driver.find_element(*ORDERS_LINK).click()
+    #context.driver.find_element(*ORDERS_LINK).click()
+    context.app.main_page.click_orders_link()
+
 
 
 @when('Search for {product}')
 def search_product(context, product):
-    search_field = context.driver.find_element(*SEARCH_INPUT)
-    search_field.clear()
-    search_field.send_keys(product)
-    context.driver.find_element(*SEARCH_ICON).click()
+    #search_field = context.driver.find_element(*SEARCH_INPUT)
+    #search_field.clear()
+    #search_field.send_keys(product)
+    #context.driver.find_element(*SEARCH_ICON).click()
+    context.app.main_page.search_for_keyword(product)
 
 
 @when('Open the first product search result')

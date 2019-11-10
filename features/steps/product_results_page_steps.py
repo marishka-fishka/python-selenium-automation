@@ -13,9 +13,9 @@ CART_BUTTON = (By.ID, 'add-to-cart-button')
 
 @then('Search results for {product} is shown')
 def verify_result(context, product):
-    result_text = context.driver.find_element(*TOOLBAR_TEXT_BOLD).text
-    assert product in result_text, "Expected text is dress, but got {result_text}"
-
+   # result_text = context.driver.find_element(*TOOLBAR_TEXT_BOLD).text
+   # assert product in result_text, "Expected text is {product}, but got {result_text}"
+    context.app.search_results_page.verify_result_shown(product)
 
 @then('Verify cart has {expected_number} item')
 def verify_number_of_item(context, expected_number):
@@ -39,3 +39,4 @@ def put_item_in_cart(context):
 def verify_signin_opened(context):
     context.driver.find_element(*EMAIL_FIELD)
     assert 'https://www.amazon.com/ap/signin' in context.driver.current_url
+    #context.app.search_results_page.verify_sign_in_opened('https://www.amazon.com/ap/signin')
