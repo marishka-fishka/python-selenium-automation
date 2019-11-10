@@ -47,21 +47,22 @@ def first_product_result(context):
 
 @when('Click on hamburger menu')
 def click_ham_menu(context):
-    context.driver.find_element(*HAM_MENU).click()
-
+    #context.driver.find_element(*HAM_MENU).click()
+    context.app.main_page.click_hamburger_menu()
 
 @when('Click on Amazon Music menu item')
 def click_amazon_music(context):
-    context.driver.find_element(*AMAZON_MUSIC_MENU_ITEM).click()
+    #context.driver.find_element(*AMAZON_MUSIC_MENU_ITEM).click()
+    context.app.main_page.click_Amazon_music_icon()
 
 
 @then('6 menu items are present')
 def verify_amount_of_items(context):
-    sleep(3)
-    print(len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)))
-    assert len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)) == 6, \
-        f'Expected 6 items but got {len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))}'
-
+    # sleep(3)
+    # print(len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)))
+    # assert len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS)) == 6, \
+    #     f'Expected 6 items but got {len(context.driver.find_elements(*AMAZON_MUSIC_MENU_ITEM_RESULTS))}'
+    context.app.main_page.verify_6_menu_items()
 
 #=======================$25 DEALS==============================
 
