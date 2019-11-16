@@ -127,4 +127,15 @@ def wait_signin_tooltip_clickable(context):
 
     context.driver.wait.until_not(
         EC.element_to_be_clickable(SIGN_IN_TOOLTIP)
-    )
+     )
+
+
+# =============================================================
+@when('Select Home & Kitchen department')
+def select_department(context):
+    context.app.main_page.select_department()
+
+@then('{product} department is selected')
+def department_selected(context, product):
+    context.app.main_page.department_selected(product)
+

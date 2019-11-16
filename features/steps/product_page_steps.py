@@ -19,7 +19,8 @@ NAME_PRODUCTS = (By.XPATH, "//*[@id='wfm-pmd_deals_section']/div[6]//li//span[@c
 
 @when('Click Add to cart button')
 def add_cart_button(context):
-    context.driver.find_element(*ADD_CART_BUTTON).click()
+    #context.driver.find_element(*ADD_CART_BUTTON).click()
+     context.app.main_page.add_to_cart_button()
 
 
 @when('Close suggestion side section')
@@ -73,4 +74,32 @@ def verify_name(context):
     for name in name_webelements:
         name.click()
         actual_name = context.driver.find_element(*NAME_PRODUCTS).text
-        assert actual_name in expected_names
+        assert actual_name in expected_names, f'Expected {expected_names}, but got {actual_name}'
+
+
+
+ #===========================================================================
+
+
+@given('Open Amazon product {product_id} page')
+def open_product(context, product_id):
+    context.app.product_page.open_product(product_id)
+
+@when('Hover over Add To Cart button')
+def hover_add_to_cart(context):
+    context.app.product_page.hover_add_to_cart()
+
+@then('Verify size selection tooltip is shown')
+def verify_size_tooltip(context):
+    context.app.product_page.verify_size_tooltip()
+
+#=================================================================================
+
+
+@when('Hover over Sales and Deals button')
+def hover_add_to_cart(context):
+    context.app.product_page.hover_sales_and_deals_but()
+
+@then('Verify that deals are present')
+def verify_size_tooltip(context):
+    context.app.product_page.verify_deals_present()
